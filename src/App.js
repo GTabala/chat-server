@@ -21,9 +21,9 @@ useEffect(() => {
   },[kick]
 );
 
-setInterval(() => {
-  setKick(!kick);
-}, 30000);
+// setInterval(() => {
+//   setKick(!kick);
+// }, 30000);
 
   return (
     <div className="App">
