@@ -5,8 +5,8 @@ const Chat = ({askAPI}) => {
     let [name, setName] = useState("");
     let [message, setMessage] = useState("");
 
-    const submitForm = () => {
-
+    const submitForm = (e) => {
+        e.preventDefault();
         let newMessage = {
             "from": name,
             "text": message
@@ -24,7 +24,7 @@ const Chat = ({askAPI}) => {
             .then(x => x.json())
             .then(x => console.log(x));
             setTimeout(() => {
-              askAPI(new Date());
+              askAPI();
             }, 1000);
             setName("");
             setMessage("");
@@ -32,7 +32,7 @@ const Chat = ({askAPI}) => {
 
     return (
         <div>
-          
+          <form onSubmit={submitForm}>
             <label>
                 Name:
             </label>
@@ -41,13 +41,14 @@ const Chat = ({askAPI}) => {
             <label>
                 Message:
             </label>
-            <input type="text" name="message" value={message} placeholder="Enter your message here" onChange={e => setMessage(e.target.value)} />
+            <input type="textfield" name="message" value={message} placeholder="Enter your message here" onChange={e => setMessage(e.target.value)} />
             <br/><br/>
   
 
             <button onClick={submitForm}>
-                FIRE!
+                Post
             </button>
+            </form>
         </div>
     )
 };

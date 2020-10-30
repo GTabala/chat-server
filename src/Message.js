@@ -15,13 +15,13 @@ const Message = ({msg,askAPI}) => {
       .then(x => x.json())
       .then(x => console.log(x));
       setTimeout(() => {
-        askAPI(msg.id);
+        askAPI();
       }, 1000);
   };
 
 
   return (
-    <div id={msg.id}>   
+    <div id={msg.id} className="message" >   
         <p>
             {msg.from}
         </p>

@@ -7,22 +7,23 @@ import Chat from './Chat';
 function App() {
 
 const [messages, setMessages] = useState([]);
-const [kick, setKick] = useState(0);
+const [kick, setKick] = useState(true);
 
 
-const askAPI = (val) => {
-  setKick(val);
-  console.log(val);
+const askAPI = () => {
+  setKick(!kick);
 };
 
 useEffect(() => {
     fetch("https://gtabala-chat-server.glitch.me/messages/")
     .then(response => response.json())
-    .then(response => {setMessages(response);
-    console.log(kick);});
+    .then(response => setMessages(response));
   },[kick]
 );
 
+setInterval(() => {
+  setKick(!kick);
+}, 30000);
 
   return (
     <div className="App">
