@@ -41,7 +41,7 @@ const Chat = ({askAPI}) => {
             <label>
                 Message:
             </label>
-            <input type="textfield" name="message" value={message} placeholder="Enter your message here" onChange={e => setMessage(e.target.value)} />
+            <input type="text" name="message" value={message} placeholder="Enter your message here" onChange={e => setMessage(e.target.value)} />
             <br/><br/>
   
 
